@@ -7,8 +7,6 @@
   <link rel="stylesheet" href="assets/css/normalize.css" media="all" />
   <link rel="stylesheet" href="assets/css/application.css" media="all" />
 
-  <script src="assets/js/underscore-min.js"></script>
-
   <script>
     function ready(cb){
       if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
@@ -27,6 +25,56 @@
 
     <div class="catalog">
 
+    </div>
+
+    <div class="modal_overlay">
+      <div class="modal_content">
+        <h3>Фильтр</h3>
+
+        <button class="close">Закрыть</button>
+
+        <form class="filter-controls">
+          <div class="form-group">
+            <label for="select_color">Цвет: </label>
+            <select name="color" id="select_color">
+              <option value="Фиолетовый">Фиолетовый</option>
+              <option value="Белый">Белый</option>
+              <option value="Голубой">Голубой</option>
+              <option value="Желтый">Желтый</option>
+              <option value="Оранжевый">Оранжевый</option>
+              <option value="Розовый">Розовый</option>
+              <option value="Серый">Серый</option>
+              <option value="Синий">Синий</option>
+              <option value="Красный">Красный</option>
+              <option value="Зеленый">Зеленый</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Вид:</label>
+
+            <span class="checkbox"><input type="checkbox" name="kind" value="Аликорн" checked/> Аликорн</span>
+            <span class="checkbox"><input type="checkbox" name="kind" value="Единорог" checked/> Единорог</span>
+            <span class="checkbox"><input type="checkbox" name="kind" value="Земная пони" checked/> Земная пони</span>
+            <span class="checkbox"><input type="checkbox" name="kind" value="Пегас" checked /> Пегас</span>
+          </div>
+
+          <div class="form-group">
+            <label>Цена: </label>
+            От <input type="number" name="min-price" min="5" max="25" value="5" size="5" />
+            До <input type="number" name="max-price" min="5" max="25" value="25"/>
+          </div>
+
+          <div class="form-group">
+            <label>Новинка:</label>
+
+            <input type="radio" name="novelty" value="no" checked/> Нет
+            <input type="radio" name="novelty" value="yes" /> Да
+          </div>
+
+          <button class="submit">Найти</button>
+        </form>
+      </div>
     </div>
   </div>
 
@@ -68,7 +116,9 @@
     </ul>
   </script>
 
+  <script src="assets/js/underscore-min.js"></script>
   <script src="assets/js/data.js"></script>
+  <script src="assets/js/filter_modal.js"></script>
   <script src="assets/js/application.js"></script>
 </body>
 
