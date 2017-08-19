@@ -5,12 +5,14 @@ var App = (function(){
 
         this.bindEventListeners();
 
-        var defaultData = _.sample(appData, 20);
+        var defaultData = _.sample(appData, this.itemsLimit);
 
         this.render({items: defaultData});
     }
 
     App.prototype = {
+      itemsLimit: 20,
+
       render: function(data){
           this.el.innerHTML = this.template(data);
       },
@@ -36,7 +38,7 @@ var App = (function(){
               };
           });
 
-          this.render({items: filtered});
+          this.render({items: _.sample(filtered, this.itemsLimit)});
       }
     };
 

@@ -3,6 +3,7 @@ var FilterModal = (function(){
         this.context = context;
         this.modalOverlayEl = document.querySelector('.modal_overlay');
 
+        this.colorEl = document.querySelector('.filter-controls [name=color]');
         this.minPriceEl = document.querySelector('.filter-controls [name=min-price]');
         this.maxPriceEl = document.querySelector('.filter-controls [name=max-price]');
 
@@ -30,6 +31,7 @@ var FilterModal = (function(){
 
             if(src.classList.contains('close')){
                 this.close();
+
             } else if(src.classList.contains('submit')){
                 e.preventDefault();
 
@@ -40,16 +42,16 @@ var FilterModal = (function(){
         onChangeEvent: function(e){
             var src = e.target || e.srcElement;
 
-            if(src.name == 'min-price' || src.name == 'max-price'){
+            if(src.name === 'min-price' || src.name === 'max-price'){
                if(_.isNaN(src.value)){
                    src.value = 5;
                }
 
-               if(src.name == 'min-price' && parseFloat(src.value) > parseFloat(this.maxPriceEl.value)){
+               if(src.name === 'min-price' && parseFloat(src.value) > parseFloat(this.maxPriceEl.value)){
                    src.value = this.maxPriceEl.value;
                }
 
-                if(src.name == 'max-price' && parseFloat(src.value) < parseFloat(this.minPriceEl.value)){
+                if(src.name === 'max-price' && parseFloat(src.value) < parseFloat(this.minPriceEl.value)){
                     src.value = this.minPriceEl.value;
                 }
             }
@@ -58,8 +60,7 @@ var FilterModal = (function(){
         filter: function(){
             var filterData = {};
 
-            var colorEl = document.querySelector('.filter-controls [name=color]');
-            filterData.color = colorEl.value;
+            filterData.color = this.colorEl.value;
 
             var kindEls = document.querySelectorAll('.filter-controls [name=kind]');
             filterData.kinds = [];
@@ -70,11 +71,9 @@ var FilterModal = (function(){
                 }
             });
 
-            var minPriceEl = document.querySelector('.filter-controls [name=min-price]');
-            filterData.minPrice = parseFloat(minPriceEl.value);
+            filterData.minPrice = parseFloat(this.minPriceEl.value);
 
-            var maxPriceEl = document.querySelector('.filter-controls [name=max-price]');
-            filterData.maxPrice = parseFloat(maxPriceEl.value);
+            filterData.maxPrice = parseFloat(this.maxPriceEl.value);
 
             var noveltyEl = document.querySelector('.filter-controls [name=novelty]:checked');
             filterData.isNew = (noveltyEl.value === 'yes' ? true : false);

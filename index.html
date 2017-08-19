@@ -79,6 +79,10 @@
   </div>
 
   <script type="text/template" id="catalog-template">
+    <% if(items.length == 0) { %>
+      <p class="not_found">Ничего не найдено!</p>
+    <% } %>
+
     <ul class="items">
       <% items.forEach(function(item){ %>
         <li class="item">

@@ -223,4 +223,39 @@ var appData = [
         "price": 23.99,
         "is_new": true
     },
+    {
+        "name": "Соарин",
+        "color": "Серый",
+        "kind": "Пегас",
+        "price": 13.99,
+        "is_new": false
+    },
+    {
+        "name": "Лунная пони",
+        "color": "Синий",
+        "kind": "Аликорн",
+        "price": 8.99,
+        "is_new": false
+    },
+    {
+        "name": "Король Сомбра",
+        "color": "Синий",
+        "kind": "Единорог",
+        "price": 13.99,
+        "is_new": false
+    },
+    {
+        "name": "Трикси",
+        "color": "Синий",
+        "kind": "Единорог",
+        "price": 24.99,
+        "is_new": false
+    },
+    {
+        "name": "Флим",
+        "color": "Оранжевый",
+        "kind": "Единорог",
+        "price": 6.99,
+        "is_new": true
+    },
 ];
