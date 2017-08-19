@@ -4,15 +4,71 @@
   <meta charset="UTF-8">
   <title>Pony Store</title>
 
-  <script src="assets/js/ejs.min.js"></script>
+  <link rel="stylesheet" href="assets/css/normalize.css" media="all" />
+  <link rel="stylesheet" href="assets/css/application.css" media="all" />
+
+  <script src="assets/js/underscore-min.js"></script>
+
+  <script>
+    function ready(cb){
+      if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        cb()
+      } else {
+        document.addEventListener("DOMContentLoaded", cb);
+      }
+    }
+  </script>
 </head>
 <body>
   <div id="app">
+    <h2>Каталог</h2>
+
+    <button id="btn-filter">Фильтр</button>
+
+    <div class="catalog">
+
+    </div>
   </div>
 
   <script type="text/template" id="catalog-template">
+    <ul class="items">
+      <% items.forEach(function(item){ %>
+        <li class="item">
+          <div class="name"><%= item.name %></div>
+
+          <div class="attributs">
+            <div class="attribute color">
+              <span class="label">Цвет: </span>
+              <span class="value"><%= item.color %></span>
+            </div>
+
+            <div class="attribute kind">
+              <span class="label">Тип: </span>
+              <span class="value"><%= item.kind %></span>
+            </div>
+
+            <div class="attribute price">
+              <span class="label">Цена: </span>
+              <span class="value">$<%= item.price %></span>
+            </div>
+
+            <div class="attribute price">
+              <span class="label">Новинка: </span>
+              <span class="value">
+                <% if(item.is_new) { %>
+                  Да
+                <% } else { %>
+                  Нет
+                <% } %>
+              </span>
+            </div>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
   </script>
 
+  <script src="assets/js/data.js"></script>
   <script src="assets/js/application.js"></script>
 </body>
 
