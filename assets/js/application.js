@@ -1,6 +1,6 @@
 var App = (function(){
     function App(){
-        this.el = document.getElementsByClassName("catalog")[0];
+        this.el = document.querySelector(".catalog");
         this.template = _.template(document.getElementById('catalog-template').innerHTML);
 
         this.bindEventListeners();
